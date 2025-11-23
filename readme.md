@@ -52,7 +52,7 @@ spring.datasource.password=
 
 ###### IMP : If you are using Spring Security 🔐
 
-```
+```java
 @Bean
 public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
     http
@@ -98,7 +98,7 @@ https://www.youtube.com/watch?v=PSrHcCwvfVQ
 
 # • Schema.sql •
 - To use schema.sql `for MySQL` you need this `2 properties`
-    ```
+    ```properties
     spring.jpa.hibernate.ddl-auto=none **
     spring.sql.init.mode=always **
     spring.sql.init.platform=mysql
@@ -111,7 +111,7 @@ https://www.youtube.com/watch?v=PSrHcCwvfVQ
 <hr/>
 
 # • CommandLineRunner •
-```
+```java
 @Component
 @Order(1) //If you have multiple runner
 public class StartupRunner implements CommandLineRunner {
@@ -124,7 +124,7 @@ public class StartupRunner implements CommandLineRunner {
 ```
 
 or 
-```
+```java
 @SpringBootApplication
 public class MyApplication {
 
