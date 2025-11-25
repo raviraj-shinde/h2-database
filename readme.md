@@ -3,38 +3,38 @@
 - [Project](#-project-)
 
 - [H2 Database](#-h2-database-)
-  - [Dependency](#1-dependency-h2-database)
+  - [Dependency](#1-dependency--h2-database)
   - [Properties](#2-properties)
     - [Spring Security](#imp--if-you-are-using-spring-security-)
   - [How to Connect to H2 Console](#3-how-to-connect-to-a-h2-console)
   - [Learned From](#learned-from)
-- [Schema.sql](#-schema-sql-)
+- [Schema.sql](#-schemasql-)
 - [CommandLineRunner](#-commandlinerunner-)
 - [Other Notes](#-other-notes-)
-
 
 ---
 
 # • Project •
+
 ```properties
 spring.application.name=H2Demo
-server.port=9090 
+server.port=9090
 .... others
 ```
 
 ###### Structure
 
-| Packages | Files contains |
-| :-- | :-- |
-| `config` | SecurityConfig.java |
-| `Modek or Entity`| Book.java |
-| `controller` | BookController.java |
-| `service` | DataInitialization.java |
-| `repsitory` | BookRepository.java `Interface | exteds CrudRepository<Book, Integer>` |
+| Packages          | Files contains                 |
+| :---------------- | :----------------------------- | ------------------------------------- |
+| `config`          | SecurityConfig.java            |
+| `Modek or Entity` | Book.java                      |
+| `controller`      | BookController.java            |
+| `service`         | DataInitialization.java        |
+| `repsitory`       | BookRepository.java `Interface | exteds CrudRepository<Book, Integer>` |
 
 ###### API's
-`localhost/9090/api/books` : Get
 
+`localhost/9090/api/books` : Get
 
 <hr/>
 
@@ -102,32 +102,36 @@ If you have set `spring.datasource.url=jdbc:h2:mem:<yourdbname>` :: copy this ur
 2] Go to `http://localhost:9090/h2`
 3] Paste `url` at `JDBC URL`:
 
-![H2 Console](./readme-images/image.png) 
+![H2 Console](./readme-images/image.png)
 
 4] `Test connection` and `connect`.
 
 <hr/>
 
-### Learned from 
+### Learned from
+
 https://www.youtube.com/watch?v=PSrHcCwvfVQ
 
 <hr/> <br/> <hr/>
 
-# • Schema.sql •
-- To use schema.sql `for MySQL` you need this `2 properties`
-    ```properties
-    spring.jpa.hibernate.ddl-auto=none **
-    spring.sql.init.mode=always **
-    spring.sql.init.platform=mysql
-    ```
+# • schema.sql •
 
-    - `ddl-auto=none` → So Hibernate does NOT create tables automatically
-    - `spring.sql.init.mode=always` → Makes Spring run schema.sql
-    - `platform=mysql` → Tells Spring to use MySQL-style SQL (optional but good)
+- To use schema.sql `for MySQL` you need this `2 properties`
+
+  ```properties
+  spring.jpa.hibernate.ddl-auto=none **
+  spring.sql.init.mode=always **
+  spring.sql.init.platform=mysql
+  ```
+
+  - `ddl-auto=none` → So Hibernate does NOT create tables automatically
+  - `spring.sql.init.mode=always` → Makes Spring run schema.sql
+  - `platform=mysql` → Tells Spring to use MySQL-style SQL (optional but good)
 
 <hr/>
 
 # • CommandLineRunner •
+
 ```java
 @Component
 @Order(1) //If you have multiple runner
@@ -140,7 +144,8 @@ public class StartupRunner implements CommandLineRunner {
 }
 ```
 
-or 
+or
+
 ```java
 @SpringBootApplication
 public class MyApplication {
@@ -156,6 +161,7 @@ public class MyApplication {
     }
 }
 ```
+
 - `When the application starts → this message prints.`
 
 <hr/>
@@ -167,8 +173,8 @@ public class MyApplication {
 2] To use schema.sql for MySQL you need that mentioned ☝🏻 2 properties
 
 3] Data JDBC vs Data JPA
-    `If you want simple + fast + predictable SQL, choose Spring Data JDBC; `
-    `If you want rich ORM features + relationships + lazy loading, choose Spring Data JPA.`
+`If you want simple + fast + predictable SQL, choose Spring Data JDBC; `
+`If you want rich ORM features + relationships + lazy loading, choose Spring Data JPA.`
 
 4] What is record -> `it has getters, setters... etc by default.`
 
