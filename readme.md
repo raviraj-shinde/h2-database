@@ -22,29 +22,28 @@ server.port=9090
 .... others
 ```
 
-###### Structure
+##### Structure
 
-| Packages          | Files contains                 |
-| :---------------- | :----------------------------- | ------------------------------------- |
+| Packages | Files contains|
+| :- | :- |
 | `config`          | SecurityConfig.java            |
-| `Modek or Entity` | Book.java                      |
+| `Model or Entity` | Book.java                      |
 | `controller`      | BookController.java            |
 | `service`         | DataInitialization.java        |
 | `repsitory`       | BookRepository.java `Interface | exteds CrudRepository<Book, Integer>` |
 
-###### API's
+##### API's
 
 `localhost/9090/api/books` : Get
 
-<hr/>
+------------------------------------------
 
 # • H2 Database •
 
-<hr/>
+------------------------------------------
 
 ## 1. Dependency : `"H2 Database"`
 
-<hr/>
 
 ## 2. Properties
 
